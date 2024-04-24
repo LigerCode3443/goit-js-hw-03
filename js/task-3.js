@@ -1,26 +1,44 @@
-// Функція checkForSpam(message) приймає рядок (параметр message), перевіряє його на вміст заборонених слів spam і sale, і повертає результат перевірки. Слова в рядку параметра message можуть бути в довільному регістрі, наприклад SPAM або sAlE.
+// Напиши функцію filterArray(numbers, value), яка приймає масив чисел (numbers) та значення (value) як параметри. Функція повинна повертати новий масив лише тих чисел із масиву numbers, які більші за значення value.
 
-// Доповни код функції таким чином, що:
+// Усередині функції:
 
-// Якщо знайдено заборонене слово (spam або sale), то функція повертає буль true
-// Якщо в рядку відсутні заборонені слова, функція повертає буль false
+// Створи порожній масив, у який будеш додавати підходящі числа.
+// Використай цикл для ітерації кожного елемента масиву numbers.
+// Використовуй умовний оператор if усередині циклу для перевірки кожного елемента и додавання до свого масиву.
+// Поверни свій новий масив з підходящими числами як результат.
 
-function checkForSpam(message) {
-  if (message.toLowerCase().includes("spam")) {
-    return true;
-  } else if (message.toLowerCase().includes("sale")) {
-    return true;
-  } else {
-    return false;
+function filterArray(numbers, value) {
+  const newArr = [];
+  for (const items of numbers) {
+    if (items > value) {
+      newArr.push(items);
+    }
   }
-  // const normalizeMessage = message.toLowerCase();
-  // return normalizeMessage.includes("spam") || normalizeMessage.includes("sale");
+  return newArr;
 }
 
-console.log(checkForSpam("Latest technology news")); // false
-console.log(checkForSpam("JavaScript weekly newsletter")); // false
-console.log(checkForSpam("Get best sale offers now!")); // true
-console.log(checkForSpam("Amazing SalE, only tonight!")); // true
-console.log(checkForSpam("Trust me, this is not a spam message")); // true
-console.log(checkForSpam("Get rid of sPaM emails. Our book in on sale!")); // true
-console.log(checkForSpam("[SPAM] How to earn fast money?")); // true
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
+console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
+console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
+console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
+
+// TODO:=========task-05=================
+//Напишіть функцію calculateAverage()
+//яка приймає довільну кількість
+//аргументів і повертає їхнє середнє значення.
+//Додати перевірку, що аргументи це числа.
+
+// function calculateAverage() {
+//   const argm = Array.from(arguments);
+//   let totalSum = 0;
+//   let count = 0;
+
+//   for (const items of argm) {
+//     if (typeof items !== "number") continue;
+//     totalSum += items;
+//     count += 1;
+//   }
+//   return totalSum / count;
+// }
+// console.log(calculateAverage(4, 6, 8, 9, "px"));
